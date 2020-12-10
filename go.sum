@@ -1,0 +1,4 @@
+github.com/gorilla/mux v1.8.0 h1:i40aqfkR1h2SlN9hojwV5ZA91wcXFOvkdNIeFDP5koI=
+github.com/gorilla/mux v1.8.0/go.mod h1:DVbg23sWSpFRCP0SfiEN6jmj59UnW/n46BH5rLB71So=
+github.com/monolabhitsuzi/Portal_Server v0.0.0-20201207121859-92f59176f477 h1:isbJkCyJFP9npB+o0Jemk4cKlNIiRjL24K715PQLRr8=
+github.com/monolabhitsuzi/Portal_Server v0.0.0-20201207121859-92f59176f477/go.mod h1:Zm0zFk3E7p972lxv8L2bVR6vMzlseGxkiyG3H6SWmhM=

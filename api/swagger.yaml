@@ -1,0 +1,72 @@
+---
+swagger: "2.0"
+info:
+  description: "description"
+  version: "0.0.1"
+  title: "Portal Attendance API"
+  termsOfService: "terms"
+  contact:
+    name: "hrkk0"
+  license:
+    name: "MIT"
+    url: "http://opensource.org/licenses/MIT"
+paths:
+  /users/{id}:
+    get:
+      summary: "ユーザ情報取得API"
+      description: "指定されたIDのユーザ情報を返します。"
+      parameters:
+      - name: "id"
+        in: "path"
+        required: true
+        type: "string"
+        x-exportParamName: "Id"
+      responses:
+        "200":
+          description: "成功時のレスポンス"
+          schema:
+            type: "object"
+  /users/{id}/course:
+    get:
+      summary: "時間割取得API"
+      description: "指定されたIDのユーザの時間割を返します。"
+      parameters:
+      - name: "id"
+        in: "path"
+        required: true
+        type: "string"
+        x-exportParamName: "Id"
+      responses:
+        "200":
+          description: "OK"
+  /courses/{id}:
+    get:
+      summary: "講義情報取得API"
+      description: "指定されたIDの講義情報を返します。"
+      parameters:
+      - name: "id"
+        in: "path"
+        required: true
+        type: "integer"
+        x-exportParamName: "Id"
+      responses:
+        "200":
+          description: "OK"
+definitions:
+  User:
+    type: "object"
+    properties:
+      id:
+        type: "string"
+      name:
+        type: "string"
+  Course:
+    type: "object"
+    properties:
+      id:
+        type: "integer"
+        format: "int64"
+      name:
+        type: "string"
+      description:
+        type: "string"
