@@ -30,10 +30,11 @@ func UsersIdCourseGet(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "application/json; charset=UTF-8")
 	var arr[5] Course
 	
+	var courseNames = [] string{"プロジェクト演習","Java実習","C#実習","データベースプログラミング","Oracle実習","IT活用技法","キャリア形成","デザインパターン入門"}
 
 	for i := range arr {
 		idStr := fmt.Sprintf("%04d", rand.Intn(9999))
-		arr[i] = Course{ Id:idStr, Name:"講義" }
+		arr[i] = Course{ Id:idStr, Name:courseNames[rand.Intn(len(courseNames))] }
 	}
 
 	json.NewEncoder(w).Encode(arr)
