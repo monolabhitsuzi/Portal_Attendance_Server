@@ -10,9 +10,16 @@
 package swagger
 
 import (
+	"fmt"
+	"math/rand"
+	"time"
 	"net/http"
 	"encoding/json"
 )
+
+func init() {
+    rand.Seed(time.Now().UnixNano())
+}
 
 func CoursesIdGet(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "application/json; charset=UTF-8")
@@ -22,11 +29,12 @@ func CoursesIdGet(w http.ResponseWriter, r *http.Request) {
 func UsersIdCourseGet(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "application/json; charset=UTF-8")
 	var arr[5] Course
-	arr[0] = Course{ Id:0, Name:"講義0" }
-	arr[1] = Course{ Id:1, Name:"講義1" }
-	arr[2] = Course{ Id:2, Name:"講義2" }
-	arr[3] = Course{ Id:3, Name:"講義3" }
-	arr[4] = Course{ Id:4, Name:"講義4" }
+	
+
+	for i := range arr {
+		idStr := fmt.Sprintf("%04d", rand.Intn(9999))
+		arr[i] = Course{ Id:idStr, Name:"講義" }
+	}
 
 	json.NewEncoder(w).Encode(arr)
 }
