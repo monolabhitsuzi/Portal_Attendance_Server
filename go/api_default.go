@@ -10,16 +10,9 @@
 package swagger
 
 import (
-	"fmt"
-	"math/rand"
-	"time"
 	"net/http"
 	"encoding/json"
 )
-
-func init() {
-    rand.Seed(time.Now().UnixNano())
-}
 
 func CoursesIdGet(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "application/json; charset=UTF-8")
@@ -29,13 +22,11 @@ func CoursesIdGet(w http.ResponseWriter, r *http.Request) {
 func UsersIdCourseGet(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "application/json; charset=UTF-8")
 	var arr[5] Course
-	
-	var courseNames = [] string{"プロジェクト演習","Java実習","C#実習","データベースプログラミング","Oracle実習","IT活用技法","キャリア形成","デザインパターン入門"}
-
-	for i := range arr {
-		idStr := fmt.Sprintf("%04d", rand.Intn(9999))
-		arr[i] = Course{ Id:idStr, Name:courseNames[rand.Intn(len(courseNames))] }
-	}
+	arr[0] = Course{ Id:"0614", Name:"キャリア形成"}
+	arr[1] = Course{ Id:"6091", Name:"データベースプログラミング"}
+	arr[2] = Course{ Id:"9212", Name:"デザインパターン入門"}
+	arr[3] = Course{ Id:"1953", Name:"C#実習"}
+	arr[4] = Course{ Id:"1820", Name:"Oracle実習"}
 
 	json.NewEncoder(w).Encode(arr)
 }
